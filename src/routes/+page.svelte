@@ -1,2 +1,2 @@
-<h1>Portfolio</h1>
-<p>This is the start.</p>
+<h1>Eskil Falnes-Malmo</h1>
+<p>graphic designer</p>
