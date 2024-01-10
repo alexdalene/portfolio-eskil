@@ -1,11 +1,17 @@
-<nav>
-    <a href="/"><img src="/logo.webp" alt="logo for the portfolio"></a>
-    <a href="/">home</a>
-    <a href="/about">about me</a>
-    <a href="/contact">contact</a>
-    <img src="/illustrations/WavyLangTynn.svg" alt="a decorative wavy line" aria-hidden="true">
+<svelte:head>
+    <link rel="stylesheet" href="https://use.typekit.net/xua3jwt.css">
+</svelte:head>
+
+<header>
+    <nav>
+        <a href="/"><img src="/logo.webp" alt="logo for the portfolio"></a>
+        <a href="/">home</a>
+        <a href="/about">about&nbsp;me</a>
+        <a href="/contact">contact</a>
+    </nav>
+    <!-- <img src="/illustrations/WavyLangTynn.svg" alt="a decorative wavy line" aria-hidden="true"> -->
     <a href="mailto:efalnesmalmo@gmail.com">efalnesmalmo@gmail.com</a>
-</nav>
+</header>
 
 <main>
     <slot />
@@ -26,8 +32,9 @@
 <style>
     :global(body) {
         margin: 0;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'azo-sans-web', sans-serif;
         font-weight: 400;
+        font-style: normal;
         font-size: 16px;
         text-rendering: geometricPrecision;
     }
@@ -36,7 +43,7 @@
         margin: 0;
     }
 
-    nav {
+    header {
         position: sticky;
         top: 0;
         display: flex;
@@ -45,20 +52,29 @@
         padding-inline: 5%;
         padding-block: 1rem;
 
-        & img {
-            width: auto;
-            height: 0.8rem;
+        & nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
 
         & a img {
             width: auto;
             height: 2.5rem;
         }
+
+        & a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: lowercase;
+        }
     }
 
     main {
         min-height: calc(100svh - 10rem);
         padding-inline: 5%;
+        padding-top: 2rem;
     }
 
     footer {
@@ -98,5 +114,32 @@
                 color: #909090; 
             }
         }
+    }
+
+    @font-face {
+        font-family: 'Trap';
+        font-style: normal;
+        font-weight: 400;
+        src: 
+        local('Trap Regular'), local('Trap-Regular'),
+        url('fonts/trapRegular.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Trap';
+        font-style: normal;
+        font-weight: 600;
+        src: 
+        local('Trap Semibold'), local('Trap-Semibold'),
+        url('fonts/trapSemiBold.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Trap';
+        font-style: normal;
+        font-weight: 700;
+        src: 
+        local('Trap Bold'), local('Trap-Bold'),
+        url('fonts/trapBold.otf') format('opentype');
     }
 </style>
