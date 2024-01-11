@@ -1,16 +1,18 @@
+<script>
+</script>
+
 <svelte:head>
     <link rel="stylesheet" href="https://use.typekit.net/xua3jwt.css">
 </svelte:head>
 
 <header>
     <nav>
-        <a href="/"><img src="/logo.webp" alt="logo for the portfolio"></a>
+        <a href="/" aria-label="logo"><img src="/logo.webp" alt="logo for the portfolio"></a>
         <a href="/">home</a>
         <a href="/about">about&nbsp;me</a>
         <a href="/contact">contact</a>
     </nav>
-    <!-- <img src="/illustrations/WavyLangTynn.svg" alt="a decorative wavy line" aria-hidden="true"> -->
-    <a href="mailto:efalnesmalmo@gmail.com">efalnesmalmo@gmail.com</a>
+    <a href="mailto:efalnesmalmo@gmail.com" class="mail">efalnesmalmo@gmail.com</a>
 </header>
 
 <main>
@@ -69,12 +71,19 @@
             font-size: 1rem;
             text-transform: lowercase;
         }
+
+        & .mail {
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
     }
 
     main {
         min-height: calc(100svh - 10rem);
         padding-inline: 5%;
         padding-top: 2rem;
+        position: relative;
     }
 
     footer {
