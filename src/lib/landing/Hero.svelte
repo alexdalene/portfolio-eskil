@@ -1,12 +1,14 @@
 <section>
     <h1>Eskil Falnes-Malmo</h1>
-    <p>graphic designer</p>
+    <h2>graphic designer</h2>
     <img src="/illustrations/WavyLangTynn.svg" alt="">
 </section>
 
 <style>
     section {
-        max-width: 768px;
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
     }
 
     h1 {
@@ -15,7 +17,7 @@
         font-size: 4rem;
     }
 
-    p {
+    h2 {
         font-family: 'Trap', sans-serif;
         font-weight: 600;
         font-size: 3rem;

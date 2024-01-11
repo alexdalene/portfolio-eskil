@@ -39,6 +39,7 @@
         font-style: normal;
         font-size: 16px;
         text-rendering: geometricPrecision;
+        overflow-x: hidden;
     }
 
     :global(h1, h2, h3, h4, h5, h6, p, a, li, ul, ol, figure, figcaption, blockquote, dl, dd, dt, hr) {
@@ -53,6 +54,10 @@
         align-items: center;
         padding-inline: 5%;
         padding-block: 1rem;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        z-index: 100;
 
         & nav {
             display: flex;
@@ -70,6 +75,11 @@
             text-decoration: none;
             font-size: 1rem;
             text-transform: lowercase;
+            transition: color 150ms ease-in;
+
+            &:hover {
+                color: #E49644;
+            }
         }
 
         & .mail {
@@ -80,7 +90,7 @@
     }
 
     main {
-        min-height: calc(100svh - 10rem);
+        min-height: calc(100svh);
         padding-inline: 5%;
         padding-top: 2rem;
         position: relative;
@@ -103,7 +113,9 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            min-width: 100%;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
 
             & div {
                 display: grid;
