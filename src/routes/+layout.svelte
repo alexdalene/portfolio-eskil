@@ -38,12 +38,17 @@
         font-weight: 400;
         font-style: normal;
         font-size: 16px;
-        text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
     }
 
     :global(h1, h2, h3, h4, h5, h6, p, a, li, ul, ol, figure, figcaption, blockquote, dl, dd, dt, hr) {
         margin: 0;
+
+        &::selection {
+            background: #E49644;
+            color: #fff;
+        }
     }
 
     header {
@@ -52,9 +57,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-inline: 5%;
         padding-block: 1rem;
-        width: 100%;
+        padding-inline: 5%;
         max-width: 1100px;
         margin: 0 auto;
         z-index: 100;
