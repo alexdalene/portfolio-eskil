@@ -1,5 +1,5 @@
 <script>
-    import gsap from "gsap";
+    import { gsap } from "gsap";
     import { onMount } from "svelte";
 
     onMount(() => {
@@ -11,30 +11,30 @@
     });
 </script>
 
-<aside>
+<div class="gradient" aria-hidden="true">
     <div id="green-1"></div>
     <div id="blue-1"></div>
     <div id="blue-2"></div>
     <div id="orange-1"></div>
     <div id="orange-2"></div>
-</aside>
+</div>
 
 <style>
-    aside {
+    .gradient {
         width: 100%;
-        height: 100%;
+        min-height: 120vh;
         position: absolute;
         overflow: hidden;
         top: 0;
         right: 0;
-    }
 
-    div {
-        position: absolute;
-        width: 30rem;
-        height: 30rem;
-        border-radius: 100%;
-        filter: blur(65px);
+        & div {
+            position: absolute;
+            width: 30rem;
+            height: 30rem;
+            border-radius: 100%;
+            filter: blur(65px);
+        }
     }
 
     #green-1 {

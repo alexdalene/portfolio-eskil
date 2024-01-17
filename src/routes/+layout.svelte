@@ -1,28 +1,49 @@
-<script>
-    import Gradient from "$lib/landing/Gradient.svelte";
-</script>
-
 <svelte:head>
     <link rel="stylesheet" href="https://use.typekit.net/xua3jwt.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </svelte:head>
+
+<script>
+    import Gradient from "$lib/components/Gradient.svelte";
+    import { gsap, ScrollTrigger } from "$lib/gsap";
+
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(".navbar", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "=+100",
+                scrub: true,
+            },
+            y: -200,
+            ease: "power1.inOut",
+        });
+    });
+</script>
 
 <Gradient />
 
-<header>
+<header class="navbar">
     <nav>
         <a href="/" aria-label="logo"><img src="/logo.webp" alt="logo for the portfolio"></a>
         <a href="/">home</a>
         <a href="/about">about&nbsp;me</a>
         <a href="/contact">contact</a>
     </nav>
-    <a href="mailto:efalnesmalmo@gmail.com" class="mail">efalnesmalmo@gmail.com</a>
+    <a href="mailto:efalnesmalmo@gmail.com" class="mail"><span class="material-symbols-outlined">
+        mail
+        </span></a>
 </header>
 
 <main>
     <slot />
 </main>
 
-<footer>
+<footer class="footer">
     <section>
         <div>
            <a href="."><img src="/icons/instagram.svg" alt="instagram logo"> @fmdoesdesign</a> 
@@ -54,7 +75,7 @@
         }
     }
 
-    header {
+    .navbar {
         position: sticky;
         top: 0;
         display: flex;
@@ -62,7 +83,7 @@
         align-items: center;
         padding-block: 1rem;
         padding-inline: 5%;
-        max-width: 1100px;
+        max-width: 1400px;
         margin: 0 auto;
         z-index: 100;
 
@@ -103,10 +124,10 @@
         position: relative;
     }
 
-    footer {
+    .footer {
         background: #1C1C1C;
         color: #fff;
-        min-height: 10rem;
+        min-height: 14rem;
         display: flex;
         align-items: center;
         padding-inline: 5%;
@@ -123,6 +144,12 @@
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
 
             & div {
                 display: grid;
