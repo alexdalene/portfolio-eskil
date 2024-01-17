@@ -1,9 +1,12 @@
 <script>
+    import Gradient from "$lib/landing/Gradient.svelte";
 </script>
 
 <svelte:head>
     <link rel="stylesheet" href="https://use.typekit.net/xua3jwt.css">
 </svelte:head>
+
+<Gradient />
 
 <header>
     <nav>
