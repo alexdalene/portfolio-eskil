@@ -3,7 +3,7 @@
 </script>
 
 <a href="." >
-    <img {src} alt="a graphic design project">
+    <img {src} alt="a graphic design project" loading="lazy">
 </a>
 
 <style>

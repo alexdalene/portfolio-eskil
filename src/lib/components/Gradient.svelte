@@ -2,12 +2,14 @@
     import { gsap } from "gsap";
     import { onMount } from "svelte";
 
+    let random = gsap.utils.random(-200, 200, 5, true);
+
     onMount(() => {
-        gsap.to("#green-1", { duration: 6, x: -200, y: 75, yoyo: true, repeat: -1, ease: "power1.inOut" });
-        gsap.to("#blue-1", { duration: 6, x: -100, y: -50, yoyo: true, repeat: -1, ease: "power1.inOut" });
-        gsap.to("#blue-2", { duration: 6, x: -50, y: -100, yoyo: true, repeat: -1, ease: "power1.inOut" });
-        gsap.to("#orange-1", { duration: 6, x: 50, y: 100, yoyo: true, repeat: -1, ease: "power1.inOut" });
-        gsap.to("#orange-2", { duration: 6, x: 50, y: -150, opacity: 0.1, yoyo: true, repeat: -1, ease: "power1.inOut" });
+        gsap.to("#green-1", { duration: 8, x: random, y: random, yoyo: true, repeat: -1, ease: "sine.out" });
+        gsap.to("#blue-1", { duration: 8, x: random, y: random, yoyo: true, repeat: -1, ease: "sine.out" });
+        gsap.to("#blue-2", { duration: 8, x: random, y: random, yoyo: true, repeat: -1, ease: "sine.out" });
+        gsap.to("#orange-1", { duration: 8, x: random, y: random, yoyo: true, repeat: -1, ease: "sine.out" });
+        gsap.to("#orange-2", { duration: 8, x: random, y: random, yoyo: true, repeat: -1, ease: "sine.out" });
     });
 </script>
 
@@ -33,7 +35,7 @@
             width: 30rem;
             height: 30rem;
             border-radius: 100%;
-            filter: blur(65px);
+            filter: blur(85px);
         }
     }
 
@@ -48,7 +50,7 @@
         background: #3067e7b3;
         top: -75px;
         right: 200px;
-        z-index: -1;
+        z-index: -2;
     }
 
     #blue-2 {
@@ -71,6 +73,8 @@
         background: #e87d1fbc;
         top: 150px;
         right: 0px;
-        z-index: -1;
+        z-index: -2;
+        width: 25rem;
+        height: 25rem;
     }
 </style>
