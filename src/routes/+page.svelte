@@ -1,33 +1,31 @@
 <script>
     import Feautured from "$lib/components/Feautured.svelte";
-    import { gsap, ScrollTrigger } from "$lib/gsap";
+    import { gsap } from "$lib/gsap";
 
     import { onMount } from "svelte";
 
     const tl = gsap.timeline();
 
     onMount(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
         tl.from(".hero h1", {
             x: -100,
             opacity: 0,
-            duration: 1,
+            duration: 0.4,
         })
         .from(".hero h2", {
             x: -100,
             opacity: 0,
-            duration: 1,
+            duration: 0.4,
         }, "<=0.2")
         .from(".hero svg", {
-            x: -100,
+            x: -200,
             opacity: 0,
-            duration: 1,
+            duration: 0.4,
         }, "<=0.2")
         .from(".navigation li", {
             x: -100,
             opacity: 0,
-            duration: 1,
+            duration: 0.4,
             stagger: 0.1,
         }, "<=0.2")
     });
@@ -78,6 +76,7 @@
             width: 100%;
             max-width: 468px;
             height: auto;
+            transform: translateX(-100px);
         }
     }
 

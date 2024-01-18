@@ -8,6 +8,14 @@
     import { gsap, ScrollTrigger } from "$lib/gsap";
 
     import { onMount } from "svelte";
+    import { spring } from "svelte/motion";
+
+    let coords = spring({ x: 0, y: 0 }, {
+        stiffness: 0.1,
+        damping: 0.25,
+    });
+
+    let size = spring(20);
 
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -25,6 +33,25 @@
     });
 </script>
 
+<svelte:window
+    on:mousemove={(e) => {
+        coords.set({ x: e.clientX, y: e.clientY });
+    }}
+    on:mousedown={() => size.set(30)}
+    on:mouseup={() => size.set(20)}
+/>
+
+<svg
+    class="cursor"
+	role="presentation"
+>
+	<circle
+		cx={$coords.x}
+		cy={$coords.y}
+		r={$size}
+	/>
+</svg>
+
 <Gradient />
 
 <header class="navbar">
@@ -34,7 +61,7 @@
         <a href="/about">about&nbsp;me</a>
         <a href="/contact">contact</a>
     </nav>
-    <a href="mailto:efalnesmalmo@gmail.com" class="mail"><span class="material-symbols-outlined">
+    <a href="mailto:efalnesmalmo@gmail.com" id="mail"><span class="material-symbols-outlined">
         mail
         </span></a>
 </header>
@@ -56,8 +83,19 @@
 </footer>
 
 <style>
-    :global(body) {
+    :global(*) {
+        cursor: none !important;
+        box-sizing: border-box;
         margin: 0;
+        padding: 0;
+
+        &::selection {
+            background: #E49644;
+            color: #fff;
+        }
+    }
+
+    :global(body) {
         font-family: 'azo-sans-web', sans-serif;
         font-weight: 400;
         font-style: normal;
@@ -66,14 +104,18 @@
         overflow-x: hidden;
     }
 
-    :global(h1, h2, h3, h4, h5, h6, p, a, li, ul, ol, figure, figcaption, blockquote, dl, dd, dt, hr) {
-        margin: 0;
-
-        &::selection {
-            background: #E49644;
-            color: #fff;
-        }
-    }
+    .cursor {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+        z-index: 999;
+        fill: #E49644;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        transition: all 150ms ease-in;
+	}
 
     .navbar {
         position: sticky;
@@ -110,7 +152,7 @@
             }
         }
 
-        & .mail {
+        & #mail {
             @media (max-width: 768px) {
                 display: none;
             }
