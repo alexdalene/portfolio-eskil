@@ -219,7 +219,7 @@
         font-weight: 400;
         src: 
         local('Trap Regular'), local('Trap-Regular'),
-        url('fonts/trapRegular.otf') format('opentype');
+        url('$lib/fonts/trapRegular.otf') format('opentype');
     }
 
     @font-face {
@@ -228,7 +228,7 @@
         font-weight: 600;
         src: 
         local('Trap Semibold'), local('Trap-Semibold'),
-        url('fonts/trapSemiBold.otf') format('opentype');
+        url('$lib/fonts/trapSemiBold.otf') format('opentype');
     }
 
     @font-face {
@@ -237,6 +237,6 @@
         font-weight: 700;
         src: 
         local('Trap Bold'), local('Trap-Bold'),
-        url('fonts/trapBold.otf') format('opentype');
+        url('$lib/fonts/trapBold.otf') format('opentype');
     }
 </style>
