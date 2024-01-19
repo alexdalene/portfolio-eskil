@@ -3,22 +3,23 @@
     export let href = "";
 </script>
 
-<a {href} >
-    <img {src} alt="a graphic design project" loading="lazy">
+<a {href} class="project">
+    <img {src} alt="a graphic design project">
 </a>
 
 <style>
-    a {
-        height: fit-content;
-    }
+    .project {
+        height: 50lvh;
 
-    img  {
+        & img  {
         width: 100%;
-        height: auto;
+        height: 100%;
         transition: filter 150ms ease-in;
+        object-fit: cover;
 
         &:hover {
             filter: grayscale(100%);
         }
-        }
+    }
+    }
 </style>
