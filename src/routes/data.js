@@ -1,7 +1,7 @@
 import { API_URL, API_TOKEN } from '$lib/loadEnv';
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ fetch }) {
+/** @type {import('./$types').LayoutServerLoad} */
+export async function fetchItems() {
 	try {
 		const url = API_URL;
 		const token = API_TOKEN;
