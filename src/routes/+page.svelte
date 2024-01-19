@@ -1,8 +1,11 @@
 <script>
     import Feautured from "$lib/components/Feautured.svelte";
     import { gsap } from "$lib/gsap";
-
     import { onMount } from "svelte";
+
+    /** @type {import('./$types').PageData} */
+    export let data;
+    console.log(data.items);
 
     const tl = gsap.timeline();
 
