@@ -53,15 +53,7 @@
 
 <section class="featured">
     <h2>Featured Work</h2>
-    <div class="grid-2-col">
-        <!-- <div class="grid-1-col">
-            <Work src="/images/baertur.webp" href="/projects/sound-of-happiness"/>
-            <Work src="/images/redd-havet.webp" />
-        </div>
-        <div class="grid-1-col">
-            <Work src="/images/nostalgia.webp" />
-            <Work src="/images/musli.webp" />
-        </div> -->
+    <div class="project-container">
         {#each data.items as item}
             <Work src={item.fieldData["main-project-image"].url} href={"/projects/" + item.fieldData.slug}/>
         {/each}
@@ -75,6 +67,7 @@
 <style>
     .hero {
         max-width: 1400px;
+        padding-inline: 5%;
         width: 100%;
         margin: 0 auto;
 
@@ -95,12 +88,12 @@
             width: 100%;
             max-width: 468px;
             height: auto;
-            transform: translateX(-100px);
         }
     }
 
     .cta {
         max-width: 1100px;
+        padding-inline: 5%;
         width: 100%;
         margin: 0 auto;
         margin-block: 6rem;
@@ -137,6 +130,7 @@
         font-weight: 700;
         font-size: 1.5rem;
         max-width: 1400px;
+        padding-inline: 5%;
         width: 100%;
         margin: 0 auto;
         margin-top: 4rem;
@@ -166,9 +160,9 @@
     }
 
     .featured {
-        max-width: 1400px;
-        width: 100%;
         margin: 0 auto;
+        max-width: 1400px;
+        padding-inline: 5%;
 
         & h2 {
             font-family: 'Trap', sans-serif;
@@ -178,19 +172,12 @@
             margin-bottom: 1.5rem;
         }
 
-        & .grid-2-col {
+        & .project-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 1rem;
+            grid-template-columns: repeat(2, minmax(200px, 1fr));
             
             @media (max-width: 768px) {
                 grid-template-columns: 1fr;
-            }
-
-            & .grid-1-col {
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-gap: 1rem;
             }
         }
     }
