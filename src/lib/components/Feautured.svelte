@@ -1,5 +1,5 @@
 <script>
-    import Work from "./Work.svelte";
+    import Work from "./Work.svelte";   
 </script>
 
 <section>
