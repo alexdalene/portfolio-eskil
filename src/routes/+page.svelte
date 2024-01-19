@@ -1,11 +1,8 @@
 <script>
-    import Feautured from "$lib/components/Feautured.svelte";
+    import Work from "$lib/components/Work.svelte";
+
     import { gsap } from "$lib/gsap";
     import { onMount } from "svelte";
-
-    /** @type {import('./$types').PageData} */
-    export let data;
-    console.log(data.items);
 
     const tl = gsap.timeline();
 
@@ -32,6 +29,10 @@
             stagger: 0.1,
         }, "<=0.2")
     });
+
+    /** @type {import('./$types').LayoutData} */
+	export let data;
+    console.log(data.items);
 </script>
 
 <section class="hero">
@@ -50,7 +51,22 @@
     <li><a href="/ux-ui"><span>05</span>UX / UI</a></li>
 </ul>
 
-<Feautured />
+<section class="featured">
+    <h2>Featured Work</h2>
+    <div class="grid-2-col">
+        <!-- <div class="grid-1-col">
+            <Work src="/images/baertur.webp" href="/projects/sound-of-happiness"/>
+            <Work src="/images/redd-havet.webp" />
+        </div>
+        <div class="grid-1-col">
+            <Work src="/images/nostalgia.webp" />
+            <Work src="/images/musli.webp" />
+        </div> -->
+        {#each data.items as item}
+            <Work src={item.fieldData["main-project-image"].url} href={"/projects/" + item.fieldData.slug}/>
+        {/each}
+    </div>
+</section>
 
 <section class="cta">
     <a href="/contact">Contact me</a>
@@ -145,6 +161,36 @@
 
             &:hover {
                 color: #E49644;
+            }
+        }
+    }
+
+    .featured {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+
+        & h2 {
+            font-family: 'Trap', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        & .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1rem;
+            
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+            }
+
+            & .grid-1-col {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 1rem;
             }
         }
     }

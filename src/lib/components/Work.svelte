@@ -1,8 +1,9 @@
 <script>
     export let src = "";
+    export let href = "";
 </script>
 
-<a href="." >
+<a {href} >
     <img {src} alt="a graphic design project" loading="lazy">
 </a>
 
