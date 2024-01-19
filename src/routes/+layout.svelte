@@ -161,7 +161,6 @@
 
     main {
         min-height: calc(100svh);
-        padding-inline: 5%;
         padding-top: 2rem;
         position: relative;
     }
