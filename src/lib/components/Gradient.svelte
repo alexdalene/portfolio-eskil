@@ -2,45 +2,11 @@
 	import { gsap } from 'gsap';
 	import { onMount } from 'svelte';
 
-	let random = gsap.utils.random(-150, 150, 5, true);
-
 	onMount(() => {
-		gsap.to('#green-1', {
-			duration: 8,
-			x: random,
-			y: random,
-			yoyo: true,
-			repeat: -1,
-			ease: 'sine.out'
-		});
-		gsap.to('#blue-1', {
-			duration: 8,
-			x: random,
-			y: random,
-			yoyo: true,
-			repeat: -1,
-			ease: 'sine.out'
-		});
-		gsap.to('#blue-2', {
-			duration: 8,
-			x: random,
-			y: random,
-			yoyo: true,
-			repeat: -1,
-			ease: 'sine.out'
-		});
-		gsap.to('#orange-1', {
-			duration: 8,
-			x: random,
-			y: random,
-			yoyo: true,
-			repeat: -1,
-			ease: 'sine.out'
-		});
-		gsap.to('#orange-2', {
-			duration: 8,
-			x: random,
-			y: random,
+		gsap.to('.gradient', {
+			duration: 40,
+			rotate: 180,
+			skewX: 10,
 			yoyo: true,
 			repeat: -1,
 			ease: 'sine.out'
@@ -48,68 +14,39 @@
 	});
 </script>
 
+<svelte:window
+    on:mousemove={(e) => {
+        const dampingFactor = 0.04;
+        const dampedX = e.clientX * dampingFactor;
+        const dampedY = e.clientY * dampingFactor;
+        document.documentElement.style.setProperty('--damped-x', dampedX + 'px');
+        document.documentElement.style.setProperty('--damped-y', dampedY + 'px');
+    }}
+/>
+
 <div class="gradient" aria-hidden="true">
-	<div id="green-1"></div>
-	<div id="blue-1"></div>
-	<div id="blue-2"></div>
-	<div id="orange-1"></div>
-	<div id="orange-2"></div>
+	<svg xmlns="http://www.w3.org/2000/svg" width="633" height="783" viewBox="0 0 833 983" fill="none" class="illustration">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M231.101 60.4108C268.681 65.6376 295.659 98.8981 324.601 128.202C358.015 162.034 400.498 189.164 409.127 240.663C419.093 300.139 410.914 371.586 371.8 409.897C333.977 446.943 279.85 413.003 231.101 415.033C178.841 417.209 121.537 460.725 80.3104 422.034C38.0192 382.344 38.7985 304.707 45.305 240.663C51.0244 184.368 76.4493 134.398 113.15 98.7924C146.108 66.8184 189.039 54.5607 231.101 60.4108Z" fill="#0235AD"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M232.842 392.616C280.54 387.474 334.939 368.39 373.424 394.221C411.91 420.052 400.83 473.64 415 514.877C428.87 555.242 460.396 591.024 455.486 633.037C449.942 680.468 433.689 736.159 386.57 758.13C339.397 780.125 285.974 735.711 232.842 736.851C177.441 738.039 122.678 788.105 73.6838 764.843C25.4557 741.945 24.1792 680.217 12.668 632.315C2.30714 589.201 -8.82335 543.666 10.818 503.241C29.6456 464.491 73.6489 442.608 114.806 422.1C151.415 403.86 191.278 397.096 232.842 392.616Z" fill="#E87D1F"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M521.755 0.72104C612.61 -7.81159 693.16 60.696 743.578 136.772C788.873 205.119 788.67 290.65 766.15 369.494C745.313 442.442 694.649 498.531 629.263 536.986C554.375 581.03 464.258 633.185 387.736 592.047C312.599 551.654 314.021 447.938 305.679 363.03C299.047 295.538 311.931 232.291 346.666 174.048C390.924 99.838 435.739 8.79917 521.755 0.72104Z" fill="#FA831B"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M608.675 436.383C673.095 432.173 735.922 463.051 779.498 510.593C821.366 556.271 833.686 619.189 832.971 681.094C832.266 742.14 812.072 798.696 775.606 847.709C731.238 907.343 682.871 976.823 608.675 982.568C531.821 988.518 466.213 932.026 413.669 875.731C363.291 821.757 317.687 754.236 327.287 681.094C336.263 612.716 406.753 576.851 458.846 531.548C505.244 491.197 547.266 440.396 608.675 436.383Z" fill="#0F55FA"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M362.872 410.626C408.113 413.129 457.334 423.277 481.632 461.57C504.175 497.096 480.107 540.017 471.056 581.12C461.856 622.903 466.009 672.934 430.014 695.994C390.855 721.08 341.337 707.813 297.505 692.304C244.19 673.441 179.731 656.224 163.95 601.857C147.664 545.753 184.338 487.915 226.429 447.45C262.178 413.084 313.39 407.888 362.872 410.626Z" fill="#28FAAB"/>
+	</svg>
 </div>
 
 <style>
 	.gradient {
-		width: 100%;
-		min-height: 120vh;
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 100px;
+		right: 150px;
 		z-index: -1;
-
-		& div {
-			position: absolute;
-			width: 30rem;
-			height: 30rem;
-			border-radius: 100%;
-			filter: blur(85px);
-		}
+		filter: blur(75px);
 	}
 
-	#green-1 {
-		background: #28faa9c2;
-		top: -100px;
-		right: -50px;
-		z-index: -1;
-	}
-
-	#blue-1 {
-		background: #3067e7b3;
-		top: -75px;
-		right: 200px;
-		z-index: -2;
-	}
-
-	#blue-2 {
-		background: #3067e7b3;
-		top: 50px;
-		right: -100px;
-		z-index: -1;
-		width: 25rem;
-		height: 25rem;
-	}
-
-	#orange-1 {
-		background: #e87d1fbc;
-		top: -300px;
-		right: -100px;
-		z-index: -3;
-	}
-
-	#orange-2 {
-		background: #e87d1fbc;
-		top: 150px;
-		right: 0px;
-		z-index: -2;
-		width: 25rem;
-		height: 25rem;
+	.illustration {
+    position: absolute;
+    left: var(--damped-x, 0px);
+    top: var(--damped-y, 0px);
+    transform: translate(-50%, -50%);
 	}
 </style>

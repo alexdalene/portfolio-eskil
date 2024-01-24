@@ -4,13 +4,8 @@
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
 
-	let coords = spring(
-		{ x: 0, y: 0 },
-		{
-			stiffness: 0.1,
-			damping: 0.4,
-		}
-	);
+	let coords = spring({ x: 0, y: 0 }, 
+		{ stiffness: 0.2, damping: 0.8 });
 
 	let size = spring(20);
 
@@ -55,7 +50,6 @@
 		<a href="/" aria-label="logo"><img src="/logo.webp" alt="logo for the portfolio" /></a>
 		<a href="/">home</a>
 		<a href="/about">about&nbsp;me</a>
-		<a href="/contact">contact</a>
 	</nav>
 	<a href="mailto:efalnesmalmo@gmail.com" id="mail"
 		><span class="material-symbols-outlined"> mail </span></a
@@ -97,6 +91,8 @@
 		font-style: normal;
 		font-size: 16px;
 		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		background: #fff;
 		overflow-x: hidden;
 	}
 
@@ -139,26 +135,27 @@
 		& a {
 			color: #1c1c1c;
 			text-decoration: none;
-			font-size: 1rem;
+			font-size: 1.25rem;
+			font-family: 'Trap', sans-serif;
+			font-weight: 600;
 			text-transform: lowercase;
-			transition: color 150ms ease-in;
+			transition: transform 150ms ease-in;
 
 			&:hover {
-				color: #e49644;
+				transform: translateY(-2px);
 			}
 		}
 
 		& #mail {
-			@media (max-width: 768px) {
-				display: none;
-			}
+			scale: 1.2;
 		}
 	}
 
 	main {
-		min-height: calc(100svh);
+		min-height: 100svh;
 		padding-top: 2rem;
 		position: relative;
+		overflow-x: clip;
 	}
 
 	.footer {

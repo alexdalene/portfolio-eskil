@@ -23,15 +23,6 @@
 				'<=0.2'
 			)
 			.from(
-				'.hero svg',
-				{
-					x: -200,
-					opacity: 0,
-					duration: 0.4
-				},
-				'<=0.2'
-			)
-			.from(
 				'.navigation li',
 				{
 					x: -100,
@@ -40,13 +31,21 @@
 					stagger: 0.1
 				},
 				'<=0.2'
+			).to(
+				'#path',
+				{
+					strokeDashoffset: 0,
+					duration: 2,
+					ease: 'power1.inOut'
+				},
+				'<=0.2'
 			);
 	});
 
 	/** @type {import('./$types').LayoutData} */
 	export let data;
 
-	const item = data.items.find((item) => {
+	const featured = data.items.filter((item) => {
 		if (item.fieldData['featured-project'] === true) {
 			return item;
 		}
@@ -63,27 +62,41 @@
 			d="M2 10.5C18.6667 0.5 35.3333 0.5 52 10.5C68.6667 20.5 85.3333 20.5 102 10.5C118.667 0.5 135.333 0.5 152 10.5C168.667 20.5 185.333 20.5 202 10.5C218.667 0.5 235.333 0.5 252 10.5C268.667 20.5 285.333 20.5 302 10.5C318.667 0.5 335.333 0.5 352 10.5C368.667 20.5 385.333 20.5 402 10.5C418.667 0.5 435.333 0.5 452 10.5C468.667 20.5 485.333 20.5 502 10.5"
 			stroke="#101010"
 			stroke-width="5"
+			id="path"
 		/>
 	</svg>
 </section>
 
 <ul class="navigation">
-	<li><a href="/brand-identity"><span>01</span>Brand Identity</a></li>
-	<li><a href="/logo-design"><span>02</span>Logo Design</a></li>
-	<li><a href="/packaging"><span>03</span>Packaging</a></li>
-	<li><a href="/posters"><span>04</span>Posters</a></li>
-	<li><a href="/ux-ui"><span>05</span>UX / UI</a></li>
+	<li><a href="/brand-identity">Brand Identity</a></li>
+	<li><a href="/logo-design">Logo Design</a></li>
+	<li><a href="/packaging">Packaging</a></li>
+	<li><a href="/posters">Posters</a></li>
 </ul>
 
 <section class="featured">
 	<h2>Featured Work</h2>
-	<div class="project-container">
-		{#each data.items as item}
+	<div class="project-wrapper">
+		<div class="project-container">
 			<Work
-				src={item.fieldData['main-project-image'].url}
-				href={'/projects/' + item.fieldData.slug}
+				src={featured[0].fieldData['main-project-image'].url}
+				href={'/projects/' + featured[0].fieldData.slug}
 			/>
-		{/each}
+			<Work
+				src={featured[1].fieldData['main-project-image'].url}
+				href={'/projects/' + featured[1].fieldData.slug}
+			/>
+		</div>
+		<div class="project-container">
+			<Work
+			src={featured[2].fieldData['main-project-image'].url}
+			href={'/projects/' + featured[2].fieldData.slug}
+			/>
+			<Work
+				src={featured[3].fieldData['main-project-image'].url}
+				href={'/projects/' + featured[3].fieldData.slug}
+			/>
+		</div>
 	</div>
 </section>
 
@@ -102,19 +115,32 @@
 			font-family: 'Trap', sans-serif;
 			font-weight: 700;
 			font-size: 4rem;
+
+			@media (max-width: 768px) {
+				font-size: 3rem;
+			}
 		}
 
 		& h2 {
 			font-family: 'Trap', sans-serif;
 			font-weight: 600;
 			font-size: 3rem;
+
+			@media (max-width: 768px) {
+				font-size: 2rem;
+			}
 		}
 
 		& svg {
-			margin-top: 2rem;
+			margin-top: 1rem;
 			width: 100%;
 			max-width: 468px;
 			height: auto;
+		}
+
+		& #path {
+		stroke-dasharray: 528.55810546875;
+		stroke-dashoffset: 528.55810546875;
 		}
 	}
 
@@ -128,6 +154,7 @@
 		font-family: 'Trap', sans-serif;
 		font-weight: 700;
 		font-size: 2rem;
+		text-transform: uppercase;
 
 		& a {
 			color: #1c1c1c;
@@ -138,9 +165,10 @@
 			gap: 0.25rem;
 			width: fit-content;
 			margin: 0 auto;
+			transition: transform 150ms ease-in;
 
 			&:hover {
-				color: #e49644;
+				transform: translateY(-2px);
 			}
 		}
 	}
@@ -148,7 +176,7 @@
 	.navigation {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 0.5rem;
 		list-style: none;
 		padding: 0;
 		margin: 0;
@@ -160,7 +188,7 @@
 		padding-inline: 5%;
 		width: 100%;
 		margin: 0 auto;
-		margin-top: 4rem;
+		margin-top: 5rem;
 
 		& li {
 			width: fit-content;
@@ -179,9 +207,10 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.25rem;
+			transition: transform 150ms ease-in;
 
 			&:hover {
-				color: #e49644;
+				transform: translateX(0.5rem);
 			}
 		}
 	}
@@ -194,14 +223,28 @@
 		& h2 {
 			font-family: 'Trap', sans-serif;
 			font-weight: 700;
-			font-size: 2rem;
-			margin-top: 4rem;
-			margin-bottom: 1.5rem;
+			font-size: 3rem;
+			margin-top: 5rem;
+			margin-bottom: 1rem;
+
+			@media (max-width: 768px) {
+				font-size: 2rem;
+			}
+		}
+
+		& .project-wrapper {
+			display: grid;
+			grid-template-columns: 1fr 0.75fr;
+			gap: 1rem;
+
+			@media (max-width: 768px) {
+				grid-template-columns: 1fr;
+			}
 		}
 
 		& .project-container {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
+			display: flex;
+			flex-direction: column;
 			gap: 1rem;
 
 			@media (max-width: 768px) {
