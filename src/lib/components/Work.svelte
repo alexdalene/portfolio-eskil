@@ -14,8 +14,9 @@
 		& img {
 			width: 100%;
 			height: 100%;
+			max-height: 600px;
 			transition: filter 150ms ease-in;
-			object-fit: cover;
+			object-fit: contain;
 
 			&:hover {
 				filter: grayscale(100%);
