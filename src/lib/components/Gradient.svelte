@@ -5,7 +5,7 @@
 	onMount(() => {
 		gsap.to('.gradient', {
 			duration: 40,
-			rotate: 180,
+			rotate: -180,
 			skewX: 10,
 			yoyo: true,
 			repeat: -1,

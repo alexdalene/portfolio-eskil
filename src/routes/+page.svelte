@@ -68,9 +68,7 @@
 </section>
 
 <ul class="navigation">
-	<li><a href="/brand-identity">Brand Identity</a></li>
-	<li><a href="/logo-design">Logo Design</a></li>
-	<li><a href="/packaging">Packaging</a></li>
+	<li><a href="/projects">Projects</a></li>
 	<li><a href="/posters">Posters</a></li>
 </ul>
 
@@ -101,7 +99,7 @@
 </section>
 
 <section class="cta">
-	<a href="/contact">Contact me</a>
+	<a href="/about">Contact me</a>
 </section>
 
 <style>
