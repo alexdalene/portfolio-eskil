@@ -16,7 +16,7 @@
 
 <svelte:window
     on:mousemove={(e) => {
-        const dampingFactor = 0.04;
+        const dampingFactor = 0.01;
         const dampedX = e.clientX * dampingFactor;
         const dampedY = e.clientY * dampingFactor;
         document.documentElement.style.setProperty('--damped-x', dampedX + 'px');
