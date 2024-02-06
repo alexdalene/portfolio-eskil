@@ -31,7 +31,8 @@
 					stagger: 0.1
 				},
 				'<=0.2'
-			).to(
+			)
+			.to(
 				'#path',
 				{
 					strokeDashoffset: 0,
@@ -82,8 +83,8 @@
 		</div>
 		<div class="project-container">
 			<Work
-			src={featured[2].fieldData['main-project-image'].url}
-			href={'/projects/' + featured[2].fieldData.slug}
+				src={featured[2].fieldData['main-project-image'].url}
+				href={'/projects/' + featured[2].fieldData.slug}
 			/>
 			<Work
 				src={data.featured[3].fieldData['main-project-image'].url}
@@ -132,8 +133,8 @@
 		}
 
 		& #path {
-		stroke-dasharray: 528.55810546875;
-		stroke-dashoffset: 528.55810546875;
+			stroke-dasharray: 528.55810546875;
+			stroke-dashoffset: 528.55810546875;
 		}
 	}
 

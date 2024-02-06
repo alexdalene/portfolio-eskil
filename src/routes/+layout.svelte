@@ -4,8 +4,7 @@
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
 
-	let coords = spring({ x: 0, y: 0 }, 
-		{ stiffness: 0.2, damping: 0.8 });
+	let coords = spring({ x: 0, y: 0 }, { stiffness: 0.2, damping: 0.8 });
 
 	let size = spring(20);
 
