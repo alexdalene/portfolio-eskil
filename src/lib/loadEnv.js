@@ -1,6 +1,2 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-export const API_URL = process.env.API_URL;
-export const API_TOKEN = process.env.API_TOKEN;
+export const API_URL = import.meta.env.VITE_API_URL;
+export const API_TOKEN = import.meta.env.VITE_API_TOKEN;

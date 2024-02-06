@@ -2,7 +2,6 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
 
 	let item;
@@ -10,7 +9,6 @@
 	$: {
 		item = data.items.find((item) => item.fieldData.slug === $page.params.slug);
 		updateNextProject();
-		console.log(item);
 	}
 
 	let nextProjectSlug;
@@ -33,7 +31,6 @@
 	<div class="wrapper">
 		<div class="cover-image">
 			<img src={item.fieldData['cover-image']?.url} alt="project cover" />
-			<span>Cover image</span>
 		</div>
 		<div class="description">
 			{@html item.fieldData['project-details']}
@@ -42,11 +39,9 @@
 	<div class="aside">
 		<div>
 			<img src={item.fieldData['new-logo']?.url} alt="new logo for client" />
-			<span>New logo</span>
 		</div>
 		<div>
 			<img src={item.fieldData['old-logo']?.url} alt="old logo for client" />
-			<span>Old logo</span>
 		</div>
 	</div>
 	<button on:click={nextProject}
@@ -81,12 +76,6 @@
 		@media (max-width: 920px) {
 			grid-template-columns: 1fr;
 		}
-	}
-
-	span {
-		font-style: italic;
-		font-size: 0.9rem;
-		margin-top: 0.25rem;
 	}
 
 	.wrapper {

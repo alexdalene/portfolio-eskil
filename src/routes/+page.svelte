@@ -42,14 +42,9 @@
 			);
 	});
 
-	/** @type {import('./$types').LayoutData} */
 	export let data;
 
-	const featured = data.items.filter((item) => {
-		if (item.fieldData['featured-project'] === true) {
-			return item;
-		}
-	});
+	const { featured } = data;
 </script>
 
 <Gradient />
@@ -91,8 +86,8 @@
 			href={'/projects/' + featured[2].fieldData.slug}
 			/>
 			<Work
-				src={featured[3].fieldData['main-project-image'].url}
-				href={'/projects/' + featured[3].fieldData.slug}
+				src={data.featured[3].fieldData['main-project-image'].url}
+				href={'/projects/' + data.featured[3].fieldData.slug}
 			/>
 		</div>
 	</div>
