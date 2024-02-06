@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
 
-	let coords = spring({ x: 0, y: 0 }, { stiffness: 0.2, damping: 0.8 });
+	let coords = spring({ x: 0, y: 0 });
 
 	let size = spring(20);
 
@@ -102,9 +102,10 @@
 		left: 0;
 		top: 0;
 		z-index: 999;
-		fill: #e49644;
+		fill: rgb(0, 102, 175);
+		/* fill: #e49644; -> reference color */
 		pointer-events: none;
-		mix-blend-mode: difference;
+		mix-blend-mode: exclusion;
 		transition: all 150ms ease-in;
 	}
 
