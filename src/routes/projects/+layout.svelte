@@ -17,11 +17,10 @@
 		cursor: pointer;
 		transition: all 150ms ease-in;
 		margin-bottom: 2rem;
-		transform: scale(1.2);
 
 		&:hover {
 			color: #e49644;
-			transform: scale(1.4);
+			transform: translateX(-0.5rem);
 		}
 	}
 

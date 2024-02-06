@@ -149,9 +149,14 @@
 		transition: color 150ms ease-in;
 		justify-self: end;
 		margin-bottom: 5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		transition: all 150ms ease-in;
 
 		&:hover {
 			color: #e49644;
+			transform: translateX(0.5rem);
 		}
 	}
 </style>
