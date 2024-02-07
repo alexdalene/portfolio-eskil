@@ -24,8 +24,9 @@
         & h1 {
             font-family: 'Trap', sans-serif;
             font-weight: 600;
-            font-size: 2rem;
+            font-size: 3rem;
             margin-bottom: 2rem;
+            text-transform: uppercase;
         }
     }
 
@@ -57,6 +58,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            aspect-ratio: 1 / 1;
         }
 
         & h2 {
