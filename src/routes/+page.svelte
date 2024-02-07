@@ -80,13 +80,13 @@
 			/>
 			<Work
 				src={posters[0].fieldData.thumbnail.url}
-				href={'/projects/' + posters[0].fieldData.slug}
+				href={'/posters/' + posters[0].fieldData.slug}
 			/>
 		</div>
 		<div class="project-container">
 			<Work
 				src={posters[1].fieldData.thumbnail.url}
-				href={'/projects/' + posters[1].fieldData.slug}
+				href={'/posters/' + posters[1].fieldData.slug}
 			/>
 			<Work
 				src={projects[1].fieldData['main-project-image'].url}
