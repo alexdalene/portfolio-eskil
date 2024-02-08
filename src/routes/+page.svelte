@@ -45,9 +45,10 @@
 
 	export let data;
 
-	console.log(data);
 
-	const { projects, posters } = data;
+	const { items } = data;
+
+	console.log(items);
 </script>
 
 <Gradient />
@@ -75,22 +76,22 @@
 	<div class="project-wrapper">
 		<div class="project-container">
 			<Work
-				src={projects[0].fieldData['main-project-image'].url}
-				href={'/projects/' + projects[0].fieldData.slug}
+				src={items[0].fieldData['main-project-image']?.url}
+				href={'/projects/' + items[0].fieldData.slug}
 			/>
 			<Work
-				src={posters[0].fieldData.thumbnail.url}
-				href={'/posters/' + posters[0].fieldData.slug}
+				src={items[1].fieldData['main-project-image']?.url}
+				href={'/projects/' + items[1].fieldData.slug}
 			/>
 		</div>
 		<div class="project-container">
 			<Work
-				src={posters[1].fieldData.thumbnail.url}
-				href={'/posters/' + posters[1].fieldData.slug}
+				src={items[2].fieldData['main-project-image']?.url}
+				href={'/projects/' + items[2].fieldData.slug}
 			/>
 			<Work
-				src={projects[1].fieldData['main-project-image'].url}
-				href={'/projects/' + projects[1].fieldData.slug}
+				src={items[3].fieldData['main-project-image']?.url}
+				href={'/projects/' + items[3].fieldData.slug}
 			/>
 		</div>
 	</div>
