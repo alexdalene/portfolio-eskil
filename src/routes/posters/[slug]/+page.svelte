@@ -26,17 +26,11 @@
 </script>
 
 <div class="title">
-	<h1>{item.fieldData.name}</h1>
+	<h1>POSTER</h1>
 </div>
 <section class="container">
 	<div class="wrapper">
         <img src={item.fieldData.thumbnail?.url} alt="poster thumbnail" />
-        <div>
-            <p>{@html item.fieldData.description}</p>
-            {#if item.fieldData.secondary?.url}
-                <img src={item.fieldData.secondary.url} alt="poster secondary">
-            {/if}
-        </div>
 	</div>
 	<button on:click={nextProject}
 		>Next project <span class="material-symbols-outlined">east</span></button
@@ -92,50 +86,15 @@
 
 	.wrapper {
 		max-width: 1400px;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-		gap: 1.5rem;
-
-
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-        }
+        margin: 0 auto;
 
 		& img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-                grid-row: span 2;
                 aspect-ratio: 3 / 4;
+                max-width: 568px;
 		}
-
-		& div {
-            grid-row: span 2;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-
-
-            @media (max-width: 768px) {
-                gap: 1rem;
-            }
-
-            & img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            & p {
-                line-height: 1.5;
-
-                &:empty {
-                    display: none;
-                }
-            }
-        }
 	}
 
     .carousel {
@@ -151,7 +110,7 @@
         @media (max-width: 768px) {
                 margin-block: 4rem;
             }
-        /* mask-image: linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent); */
+        mask-image: linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent);
 
         &::-webkit-scrollbar {
             height: 8px;
